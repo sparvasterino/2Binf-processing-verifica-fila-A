@@ -1,28 +1,3 @@
-Personaggio strega;
-Trasfigurabile piuma;
-Trasfigurabile colibri;
-
-void setup() {
-  fullScreen(P3D);
-
-  strega = new Personaggio();
-  piuma = new Trasfigurabile();
-  colibri = new Trasfigurabile();
-  strega.personaggio  = loadShape("witch.obj");
-  strega.personaggio.rotateX(radians(180));
-  strega.x = width * 0.1;
-  strega.y = height * 0.5;  
-
-  piuma.trasfigurabile = loadShape("quill.obj");
-  piuma.x = width * 0.9;
-  piuma.y = height * 0.5;
-
-  colibri.trasfigurabile = loadShape("colibri.obj");
-
-  colibri.x = width * 0.1;
-  colibri.y = height * 0.6;
-}
-
 void draw() {
   background(0, 0, 255);
   lights();
@@ -56,10 +31,11 @@ class  Trasfigurabile {
 
 
 
-    if (x < width * 0.1) {
+    if (x > width * 0.1) {
       x = x + step;
-      if (y > width * 0.9) 
+      if (x < width * 0.1) 
         step = 0;
     }
   }
 }
+
